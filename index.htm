@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+
+    <title>Web Controller</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/">
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
+
+    <!--JS writeFile()-->
+    <script src="node-server/main.js"></script>
+    <script src="js/functions.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/grid/">
+
+    <!--My CSS-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body class="py-4" onload="atualizarLogs()">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="index.htm">Página Principal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="config.htm">Config <span class="sr-only">(current)</span></a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container main">
+        <h1>Web Controller</h1>
+        <p class="lead">Sistema de monitoramento e controle de incubadora</p>
+        <hr>
+        <div class="container themed-container">
+            <h1>Status</h1>
+            <p class="lead">Modelo ID: <q id="sts_ModeloID">001</q> || Estado: <q id="sts_ModeloStatus">Status</q></p>
+            <hr>
+
+            <h2 class="mt-4">Temperatura</h2>
+            <div class="row mb-3 themed-row">
+                <div class="col-4 themed-grid-col">
+                    <p>Limite Mínimo</p>
+                    <h3 id="lbl_MinTemp">AABB ºC</h3>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <p>Limite Máximo</p>
+                    <h3 id="lbl_MaxTemp">AABB ºC</h3>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <p>Temperatura Atual</p>
+                    <h3 id="lbl_CurTemp">AABB ºC</h3>
+                </div>
+            </div>
+            <hr>
+
+            <h2 class="mt-4">Umidade do Ar</h2>
+            <div class="row mb-3 themed-row">
+                <div class="col-4 themed-grid-col">
+                    <p>Limite Mínimo</p>
+                    <h3 id="lbl_MinUmiAr">AABB %</h3>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <p>Limite Maximo</p>
+                    <h3 id="lbl_MaxUmiAr">AABB %</h3>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <p>Umidade do ar Atual</p>
+                    <h3 id="lbl_CurUmiAr">AABB %</h3>
+                </div>
+            </div>
+            <hr>
+
+            <h2 class="mt-4">Painel V.I.B. </h2>
+            <div class="row mb-3 themed-row">
+                <div class="col-4 themed-grid-col">
+                    <p>Ventilação</p>
+                    <h3 id="fan_Status">Status</h3>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <p>Iluminação</p>
+                    <h3 id="led_Status">Status</h3>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <p>Balanço</p>
+                    <h3 id="swing_Status">Status</h3>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <h2 class="mt-4">Monitor de comunicação </h2>
+        <div class="row mb-3">
+            <div class="col themed-grid-col">
+                <p>Monitor</p>
+                <textarea id="textareaLog" class="col" disabled="true"></textarea>
+                <button id="btnGetLogs" onclick="atualizarLogs()">Atualizar</button>
+            </div>
+        </div>
+        <hr>
+
+        <script>
+            //setInterval(atualizaTemp, 1000);                    //chamada da função "atualizaTemp" a cada segundo  
+            //setInterval(atualizaUmiAr, 1000);                   //chamada da função "atualizaUmiAr" a cada segundo  
+            //setInterval(atualizaStatus, 1000);                  //chamada da função "atualizaStatus" a cada segundo  
+            setInterval(atualizarLogs, 5000);                  //chamada da função "atualizarLogs" a cada 5 segundos 
+        </script>
+
+    </div> <!-- /container -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted" style="float: left;">Site Oficial - <a
+                    href="https://www.gscandelari.com/">GSCANDELARI</a></span>
+            <span class="text-muted" style="float: right;">Copyright © 2019 | Guilherme Stanke Scandelari</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
